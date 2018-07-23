@@ -1,6 +1,7 @@
 # subtitleShifter
 A small python script that shifts all subtitle text by a given time.
-Have even loaded an .srt file and all of the text was off by few seconds (or even milliseconds)? This small script will fix that for you.
+
+Have you ever loaded an .srt file and all of the text was off by a few seconds (or even milliseconds)? This small script will fix that for you.
 ```
 python subtitleShifter.py -f <InputFile> -t <TimeToShift>
 ```
