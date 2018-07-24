@@ -5,6 +5,7 @@ parser = argparse.ArgumentParser(description="Shift all subtitle texts by given 
 
 parser.add_argument("-f", "--filepath", required=True, metavar="", help="Filepath for srt subtitle.")
 parser.add_argument("-t", "--time", type=float, required=True, metavar="", help="Time to shift subtitles texts.")
+parser.add_argument("-o", "--output", metavar="", help="Output subtitle file (optional).")
 args = parser.parse_args()
 
 def load_file(filename):
@@ -13,7 +14,10 @@ def load_file(filename):
     return lines
 
 def main():
-    outputFile = open(args.filepath[:-4] + "_shiftedBy" + str(args.time) + ".srt", "w")
+    if(args.output):
+        outputFile = open(args.output, "w")
+    else:
+        outputFile = open(args.filepath[:-4] + "_shiftedBy" + str(args.time) + ".srt", "w")
     lines = load_file(args.filepath)
     for line in lines:
         if line[13:16] == "-->":
